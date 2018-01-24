@@ -1,19 +1,25 @@
 package redtaller;
 
+import java.util.ArrayList;
 
 public class Taller {
 
     private int codigo;
     private String nombre;
     private String direccion;
-    private int telefono;
+    private String telefono;
 
+    private ArrayList<Cliente> listaCliente;
+    private ArrayList<Vehiculo> listavehiculo;
 
-    public Taller(int codigo, String nombre, String direccion, int telefono) {
+    Taller(int codigo, String nombre, String direccion, String telefono) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
+
+        listaCliente = new ArrayList<Cliente>();
+        listavehiculo = new ArrayList<Vehiculo>();
     }
 
     public int getCodigo() {
@@ -40,12 +46,18 @@ public class Taller {
         this.direccion = direccion;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return this.telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public void addCliente(String dni, String nombre, String telefono) {//68
+
+        listaCliente.add(new Cliente(dni, nombre, telefono));
+
     }
 
 }
