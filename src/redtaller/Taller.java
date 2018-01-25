@@ -10,7 +10,6 @@ public class Taller {
     private String telefono;
 
     private ArrayList<Cliente> listaCliente;
-    private ArrayList<Vehiculo> listavehiculo;
 
     Taller(int codigo, String nombre, String direccion, String telefono) {
         this.codigo = codigo;
@@ -19,7 +18,6 @@ public class Taller {
         this.telefono = telefono;
 
         listaCliente = new ArrayList<Cliente>();
-        listavehiculo = new ArrayList<Vehiculo>();
     }
 
     public int getCodigo() {
@@ -54,10 +52,17 @@ public class Taller {
         this.telefono = telefono;
     }
 
-    public void addCliente(String dni, String nombre, String telefono) {//68
-
-        listaCliente.add(new Cliente(dni, nombre, telefono));
-
+    public void addCliente(String dni, String nombre, String telefono, String fechaAlta) {//68
+        listaCliente.add(new Cliente(dni, nombre, telefono, fechaAlta));
     }
 
+    public Cliente getCliente(String dni) {
+        int i;
+        for (i = 0; i < listaCliente.size(); i++) {
+            if (dni.equals(listaCliente.get(i).getDni())) {
+                break;
+            }
+        }
+        return listaCliente.get(i);
+    }
 }

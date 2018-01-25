@@ -2,26 +2,18 @@ package redtaller;
 
 public class Vehiculo {
 
-    private String color;
     private String matricula;
     private String marca;
     private String modelo;
-    private int kilometraje;
+    private String color;
+    private String kilometraje;
 
-    public Vehiculo(String color, String matricula, String marca, String modelo, int kilometraje) {
-        this.color = color;
+    public Vehiculo(String matricula, String marca, String modelo, String color, String kilometraje) {
         this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;
-        this.kilometraje = kilometraje;
-    }
-
-    public String getColor() {
-        return this.color;
-    }
-
-    public void setColor(String color) {
         this.color = color;
+        this.kilometraje = kilometraje;
     }
 
     public String getMatricula() {
@@ -48,11 +40,19 @@ public class Vehiculo {
         this.modelo = modelo;
     }
 
-    public int getKilometraje() {
+    public String getColor() {
+        return this.color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getKilometraje() {
         return this.kilometraje;
     }
 
-    public void setKilometraje(int kilometraje) {
+    public void setKilometraje(String kilometraje) {
         this.kilometraje = kilometraje;
     }
 
