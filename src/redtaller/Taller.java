@@ -1,7 +1,5 @@
 package redtaller;
 
-import java.util.ArrayList;
-
 public class Taller {
 
     private int codigo;
@@ -9,15 +7,11 @@ public class Taller {
     private String direccion;
     private String telefono;
 
-    private ArrayList<Cliente> listaCliente;
-
     Taller(int codigo, String nombre, String direccion, String telefono) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
-
-        listaCliente = new ArrayList<Cliente>();
     }
 
     public int getCodigo() {
@@ -50,19 +44,5 @@ public class Taller {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
-
-    public void addCliente(String dni, String nombre, String telefono, String fechaAlta) {//68
-        listaCliente.add(new Cliente(dni, nombre, telefono, fechaAlta));
-    }
-
-    public Cliente getCliente(String dni) {
-        int i;
-        for (i = 0; i < listaCliente.size(); i++) {
-            if (dni.equals(listaCliente.get(i).getDni())) {
-                break;
-            }
-        }
-        return listaCliente.get(i);
     }
 }
