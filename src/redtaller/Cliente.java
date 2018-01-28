@@ -47,12 +47,4 @@ public class Cliente {
     public void setFechaAlta(String fechaAlta) {
         this.fechaAlta = fechaAlta;
     }
-
-    //setVehiculo
-    public void setVehiculo(Vehiculo vehiculo) {
-        this.vehiculo = vehiculo;
-        vehiculo.vehiculo(this);
-    }
-    
-    //addVehiculo
 }
