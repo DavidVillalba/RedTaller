@@ -6,9 +6,9 @@ public class Vehiculo {
     private String marca;
     private String modelo;
     private String color;
-    private String kilometraje;
-    
-    public Vehiculo(String matricula, String marca, String modelo, String color, String kilometraje) {
+    private int kilometraje;
+
+    public Vehiculo(String matricula, String marca, String modelo, String color, int kilometraje) {
         this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;
@@ -48,11 +48,11 @@ public class Vehiculo {
         this.color = color;
     }
 
-    public String getKilometraje() {
+    public int getKilometraje() {
         return this.kilometraje;
     }
 
-    public void setKilometraje(String kilometraje) {
+    public void setKilometraje(int kilometraje) {
         this.kilometraje = kilometraje;
     }
 

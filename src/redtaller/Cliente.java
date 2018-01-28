@@ -7,8 +7,6 @@ public class Cliente {
     private String telefono;
     private String fechaAlta;
 
-    Vehiculo vehiculo;
-
     public Cliente(String dni, String nombre, String telefono, String fechaAlta) {
         this.dni = dni;
         this.nombre = nombre;
