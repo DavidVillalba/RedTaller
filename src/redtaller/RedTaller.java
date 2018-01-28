@@ -63,6 +63,29 @@ public class RedTaller {
         }
     }
 
+    public Taller getTaller(int codigo) {
+        int i;
+        for (i = 0; i < listaTaller.size(); i++) {
+            if (codigo == (listaTaller.get(i).getCodigo())) {
+                break;
+            }
+        }
+        return listaTaller.get(i);
+    }
+
+    public String getInfoTaller(Taller taller) {
+        String cadena = ("Codigo: " + taller.getCodigo() + "\nNombre: " + taller.getNombre() + "\nDirección: "
+                + taller.getDireccion() + "\nTelefono: " + taller.getTelefono());
+        return cadena;
+    }
+
+    public void consultarTaller() {
+        System.out.print("Introducir codigo: ");
+        String codi = entrada.nextLine();
+        int codigo = Integer.parseInt(codi);
+        System.out.println(getInfoTaller(getTaller(codigo)));
+    }
+
     public Cliente getCliente(String dni) {
         int i;
         for (i = 0; i < listaCliente.size(); i++) {
@@ -83,6 +106,29 @@ public class RedTaller {
         System.out.print("Introducir DNI: ");
         String dni = entrada.nextLine();
         System.out.println(getInfoCliente(getCliente(dni)));
+    }
+
+    public Vehiculo getVehiculo(String matricula) {
+        int i;
+        for (i = 0; i < listaVehiculo.size(); i++) {
+            if (matricula.equals(listaVehiculo.get(i).getMatricula())) {
+                break;
+            }
+        }
+        return listaVehiculo.get(i);
+    }
+
+    public String getInfoVehiculo(Vehiculo vehiculo) {
+        String cadena = ("Matricula: " + vehiculo.getMatricula() + "\nMarca: " + vehiculo.getMarca() + "\nModelo: "
+                + vehiculo.getModelo() + "\nColor " + vehiculo.getColor() + "\nKilometraje: "
+                + vehiculo.getKilometraje());
+        return cadena;
+    }
+
+    public void consultarVehiculo() {
+        System.out.print("Introducir matricula: ");
+        String matricula = entrada.nextLine();
+        System.out.println(getInfoVehiculo(getVehiculo(matricula)));
     }
 
     public void generarDatosIniciales() {
@@ -116,8 +162,15 @@ public class RedTaller {
             System.out.println("1. Opcion 1");
             consultarCliente();
             break;
+        case 2:
+            System.out.println("2. Opcion 2");
+            consultarVehiculo();
+            break;
+        case 3:
+            System.out.println("3. Opcion 3");
+            consultarTaller();
+            break;
         }
-
     }
 
     public static void main(String[] args) {
@@ -125,7 +178,7 @@ public class RedTaller {
         RedTaller red = new RedTaller();
 
         red.generarDatosIniciales();
-        red.menuPrincipal();
+         red.menuPrincipal();
 
         System.out.println();
 
