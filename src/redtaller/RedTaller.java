@@ -5,16 +5,16 @@ import java.util.Scanner;
 
 public class RedTaller {
 
-    Scanner entrada = new Scanner(System.in);
-
     private ArrayList<Taller> listaTaller;
     private ArrayList<Cliente> listaCliente;
     private ArrayList<Vehiculo> listaVehiculo;
 
+    private Scanner entrada = new Scanner(System.in);
+
     public RedTaller() {
-        listaTaller = new ArrayList<Taller>();
-        listaCliente = new ArrayList<Cliente>();
-        listaVehiculo = new ArrayList<Vehiculo>();
+        this.listaTaller = new ArrayList<Taller>();
+        this.listaCliente = new ArrayList<Cliente>();
+        this.listaVehiculo = new ArrayList<Vehiculo>();
     }
 
     public void addTaller(int codigo, String nombre, String direccion, String telefono) {
@@ -81,8 +81,7 @@ public class RedTaller {
 
     public void consultarTaller() {
         System.out.print("Introducir codigo: ");
-        String codi = entrada.nextLine();
-        int codigo = Integer.parseInt(codi);
+        int codigo = entrada.nextInt();
         System.out.println(getInfoTaller(getTaller(codigo)));
     }
 
@@ -131,6 +130,11 @@ public class RedTaller {
         System.out.println(getInfoVehiculo(getVehiculo(matricula)));
     }
 
+    public void reportCliente(Cliente c) {
+        System.out.println("DNI: " + c.getDni());
+        c.infoVehiculo();
+    }
+
     public void generarDatosIniciales() {
         //Crear Taller
         addTaller(001, "Paco", "Calle Pepo", "4654654");
@@ -143,6 +147,15 @@ public class RedTaller {
         //Crear Vehiculos
         addVehiculo("1585 FGH", "Tesla", "Model S", "Rojo", 40000);
         addVehiculo("65464", "asfa", "wadw", "dwa", 54654);
+
+        Cliente cliente1 = new Cliente("65465P", "Roberto", "685-445-654", "12/05/2013");
+        Vehiculo vehiculo1 = new Vehiculo("1585 FGH", "Tesla", "Model S", "Rojo", 40000);
+
+        cliente1.addVehiculo(vehiculo1);
+
+        reportCliente(cliente1);
+
+
     }
 
     public void menuPrincipal() {
@@ -152,7 +165,8 @@ public class RedTaller {
         System.out.println("1. Opcion 1");
         System.out.println("2. Opcion 2");
         System.out.println("3. Opcion 3");
-        System.out.println("4. Salir");
+        System.out.println("4. Opcion 4");
+        System.out.println("5. Salir");
 
         System.out.print("Escribe una de las opciones: ");
         opcion = sc.nextInt();
@@ -170,7 +184,11 @@ public class RedTaller {
             System.out.println("3. Opcion 3");
             consultarTaller();
             break;
+        case 4:
+            System.out.println("4. Opcion 4");
+            break;
         }
+        sc.close();
     }
 
     public static void main(String[] args) {
@@ -178,7 +196,7 @@ public class RedTaller {
         RedTaller red = new RedTaller();
 
         red.generarDatosIniciales();
-         red.menuPrincipal();
+        red.menuPrincipal();
 
         System.out.println();
 

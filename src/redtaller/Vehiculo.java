@@ -2,6 +2,8 @@ package redtaller;
 
 public class Vehiculo {
 
+    private Cliente cliente;
+
     private String matricula;
     private String marca;
     private String modelo;
@@ -17,7 +19,7 @@ public class Vehiculo {
     }
 
     public String getMatricula() {
-        return this.matricula;
+        return matricula;
     }
 
     public void setMatricula(String matricula) {
@@ -25,7 +27,7 @@ public class Vehiculo {
     }
 
     public String getMarca() {
-        return this.marca;
+        return marca;
     }
 
     public void setMarca(String marca) {
@@ -33,7 +35,7 @@ public class Vehiculo {
     }
 
     public String getModelo() {
-        return this.modelo;
+        return modelo;
     }
 
     public void setModelo(String modelo) {
@@ -41,7 +43,7 @@ public class Vehiculo {
     }
 
     public String getColor() {
-        return this.color;
+        return color;
     }
 
     public void setColor(String color) {
@@ -49,11 +51,25 @@ public class Vehiculo {
     }
 
     public int getKilometraje() {
-        return this.kilometraje;
+        return kilometraje;
     }
 
     public void setKilometraje(int kilometraje) {
         this.kilometraje = kilometraje;
+    }
+
+    public Cliente getCliente(){
+        return this.cliente;
+    }
+
+    public void removeCliente() {
+        this.cliente = null;
+    }
+
+    public void setCliente(Cliente cliente) {
+        if (cliente != null) {
+            this.cliente = cliente;
+        }
     }
 
 }

@@ -1,5 +1,7 @@
 package redtaller;
 
+import java.util.ArrayList;
+
 public class Cliente {
 
     private String dni;
@@ -7,11 +9,16 @@ public class Cliente {
     private String telefono;
     private String fechaAlta;
 
+    private ArrayList<Vehiculo> listaVehiculo;
+
     public Cliente(String dni, String nombre, String telefono, String fechaAlta) {
         this.dni = dni;
         this.nombre = nombre;
         this.telefono = telefono;
         this.fechaAlta = fechaAlta;
+
+        this.listaVehiculo = new ArrayList<Vehiculo>();
+
     }
 
     public String getDni() {
@@ -45,4 +52,17 @@ public class Cliente {
     public void setFechaAlta(String fechaAlta) {
         this.fechaAlta = fechaAlta;
     }
+
+    public void addVehiculo(Vehiculo vehiculo) {
+        this.listaVehiculo.add(vehiculo);
+        vehiculo.setCliente(this);
+    }
+
+    public void infoVehiculo() {
+        System.out.println("Lista de vehiculos");
+        for (int i = 0; i < this.listaVehiculo.size(); i++) {
+            System.out.println("Matricula: "+ listaVehiculo.get(i).getMatricula());
+        }
+    }
+
 }
