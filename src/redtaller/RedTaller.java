@@ -196,7 +196,7 @@ public class RedTaller {
         RedTaller red = new RedTaller();
 
         red.generarDatosIniciales();
-        red.menuPrincipal();
+        //red.menuPrincipal();
 
         System.out.println();
 
